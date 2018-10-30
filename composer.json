@@ -1,5 +1,5 @@
 {
-    "name": "mmasterson/omnipay-nmi",
+    "name": "nerdmedia/omnipay-nmi",
     "type": "library",
     "description": "NMI (Network Merchants Inc.) driver for the Omnipay PHP payment processing library",
     "keywords": [
@@ -14,12 +14,16 @@
         "network",
         "inc"
     ],
-    "homepage": "https://github.com/mfauveau/omnipay-nmi",
+    "homepage": "https://github.com/nerdmedia/omnipay-nmi",
     "license": "MIT",
     "authors": [
         {
             "name": "Matthieu Fauveau",
             "email": "mfauveau@gmail.com"
+        },
+        {
+            "name": "Steve Bazemore",
+            "email": "steve@nerdmedia.com"
         }
     ],
     "autoload": {
