@@ -7,30 +7,42 @@ processing library for PHP 5.3+. This package implements [NMI](https://www.nmi.c
 
 ## Installation
 
-Omnipay is installed via [Composer](http://getcomposer.org/). To install, simply add it
-to your `composer.json` file:
+Omnipay is installed via [Composer](http://getcomposer.org/). To install, simply require `nerdmedia/omnipay-nmi` with Composer:
 
-```json
-{
-    "require": {
-        "nerdmedia/omnipay-nmi"
-    }
-}
 ```
-
-And run composer to update your dependencies:
-
-$ curl -s http://getcomposer.org/installer | php
-$ php composer.phar update
+composer require nerdmedia/omnipay-nmi:"3.x@dev"
+```
 
 ## Basic Usage
 
 The following gateways are provided by this package:
 
-* NMI (Network Merchants Inc.)
+* NMI_DirectPost
 
-For general usage instructions, please see the main [Omnipay](https://github.com/thephpleague/omnipay)
-repository.
+```php
+$gateway = Omnipay::create('NMI_DirectPost');
+$gateway->setUsername('demo');
+$gateway->setPassword('password');
+
+$request = $gateway->purchase([
+    'amount' => $amount,
+    'card' => [
+        'number' => '4111111111111111',
+        'expiryMonth' => '10',
+        'expiryYear' => '25',
+        'cvv' => '111'
+    ],
+    ...
+])->send();
+
+if ($response->isSuccessful()) {
+    // payment was successful: update database
+    dump($response);
+} else {
+    // payment failed: display message to customer
+    dump('Error: ' . $response->getMessage());
+}
+```
 
 ## Support
 
@@ -42,5 +54,5 @@ If you want to keep up to date with release anouncements, discuss ideas for the 
 or ask more detailed questions, there is also a [mailing list](https://groups.google.com/forum/#!forum/omnipay) which
 you can subscribe to.
 
-If you believe you have found a bug, please report it using the [GitHub issue tracker](https://github.com/nerdmedia/omnipay-nmi/issues),
+If you believe you have found a bug, please report it using the [GitHub issue tracker](https://github.com/thephpleague/omnipay-authorizenet/issues),
 or better yet, fork the library and submit a pull request.
