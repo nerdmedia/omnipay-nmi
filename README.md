@@ -2,10 +2,6 @@
 
 **NMI (Network Merchants Inc.) driver for the Omnipay PHP payment processing library**
 
-[![Build Status](https://travis-ci.org/mfauveau/omnipay-nmi.png?branch=master)](https://travis-ci.org/mfauveau/omnipay-nmi)
-[![Latest Stable Version](https://poser.pugx.org/mfauveau/omnipay-nmi/version.png)](https://packagist.org/packages/mfauveau/omnipay-nmi)
-[![Total Downloads](https://poser.pugx.org/mfauveau/omnipay-nmi/d/total.png)](https://packagist.org/packages/mfauveau/omnipay-nmi)
-
 [Omnipay](https://github.com/thephpleague/omnipay) is a framework agnostic, multi-gateway payment
 processing library for PHP 5.3+. This package implements [NMI](https://www.nmi.com/) (Network Merchants Inc.) support for Omnipay.
 
