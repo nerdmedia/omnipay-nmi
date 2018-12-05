@@ -61,6 +61,42 @@ class DirectPostResponse extends AbstractResponse
         return trim($this->data['transactionid']);
     }
 
+    public function getBillingFirstName()
+    {
+        if (isset($this->data['first_name'])) {
+            return trim($this->data['first_name']);
+        }
+
+        return null;
+    }
+
+    public function getBillingLastName()
+    {
+        if (isset($this->data['last_name'])) {
+            return trim($this->data['last_name']);
+        }
+
+        return null;
+    }
+
+    public function getProcessorId()
+    {
+        if (isset($this->data['processor_id'])) {
+            return trim($this->data['processor_id']);
+        }
+
+        return null;
+    }
+
+    public function getPlatformId()
+    {
+        if (isset($this->data['platform_id'])) {
+            return trim($this->data['platform_id']);
+        }
+
+        return null;
+    }
+
     public function getCardReference()
     {
         if (isset($this->data['customer_vault_id'])) {
