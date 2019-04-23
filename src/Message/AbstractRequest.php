@@ -2,8 +2,8 @@
 namespace Omnipay\NMI\Message;
 
 /**
-* NMI Abstract Request
-*/
+ * NMI Abstract Request
+ */
 abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
 {
     protected $endpoint = 'https://secure.nmi.com/api/transact.php';
@@ -198,6 +198,46 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
         return $this->setParameter('ponumber', $value);
     }
 
+    public function getCardholderAuth()
+    {
+        return $this->getParameter('cardholder_auth');
+    }
+
+    public function setCardholderAuth($value)
+    {
+        return $this->setParameter('cardholder_auth', $value);
+    }
+
+    public function getEci()
+    {
+        return $this->getParameter('eci');
+    }
+
+    public function setEci($value)
+    {
+        return $this->setParameter('eci', $value);
+    }
+
+    public function getCavv()
+    {
+        return $this->getParameter('cavv');
+    }
+
+    public function setCavv($value)
+    {
+        return $this->setParameter('cavv', $value);
+    }
+
+    public function getXid()
+    {
+        return $this->getParameter('xid');
+    }
+
+    public function setXid($value)
+    {
+        return $this->setParameter('xid', $value);
+    }
+
     protected function getBaseData()
     {
         $data = array();
@@ -274,6 +314,11 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
         $data['shipping'] = $this->getShipping();
         $data['ponumber'] = $this->getPONumber();
         $data['ipaddress'] = $this->getClientIp();
+        $data['cardholder_auth'] = $this->getCardholderAuth();
+        $data['eci'] = $this->getEci();
+        $data['cavv'] = $this->getCavv();
+        $data['xid'] = $this->getXid();
+
         if ($this->getCurrency()) {
             $data['currency'] = $this->getCurrency();
         }
